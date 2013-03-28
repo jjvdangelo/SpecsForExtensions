@@ -9,8 +9,6 @@
     public class ControllerSpecsFor<T> : DbSpecsFor<T>
         where T : Controller
     {
-        protected ControllerContext ControllerContext;
-
         protected override void InitializeClassUnderTest ()
         {
             base.InitializeClassUnderTest ();
@@ -33,7 +31,7 @@
             request.Setup (x => x.Url).Returns (uri);
             user.Setup (x => x.Identity).Returns (identity.Object);
 
-            SUT.ControllerContext = ControllerContext = new ControllerContext (context.Object, new RouteData (), SUT);
+            SUT.ControllerContext = new ControllerContext (context.Object, new RouteData (), SUT);
             SUT.Url = new UrlHelper (requestContext);
         }
     }
