@@ -6,7 +6,7 @@
     using System.Web.Mvc;
     using System.Web.Routing;
 
-    public class ControllerSpecsFor<T> : DbSpecsFor<T>
+    public class ControllerSpecsFor<T> : SpecsFor<T>
         where T : Controller
     {
         protected override void InitializeClassUnderTest ()
